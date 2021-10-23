@@ -8,21 +8,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://kit.fontawesome.com/de8eca74d1.js" crossorigin="anonymous"></script>
     <title>Password Generator</title>
 </head>
-<body>
+<body onload="run()">
 <div id="main_body">
     <div id="options">
         <ul>
             <li class="list_element"><input id="uppercase_select" type="checkbox" onchange="changeSetting(this)" checked>Uppercase</li>
             <li class="list_element"><input id="numbers_select" type="checkbox" onchange="changeSetting(this)" checked>Numbers</li>
             <li class="list_element"><input id="special_chars_select" type="checkbox" onchange="changeSetting(this)" checked>Special characters</li>
-            <li class="list_element"><input value="10" type="number" id="number_of_chars" onchange="changeSetting(this)">Number of characters</li>
+            <li class="list_element"><input value="10" type="number" id="number_of_chars" onchange="changeNumberOfChars(this)">Number of characters</li>
         </ul>
         
     </div>
     <div id="generated password">
         <p id="password_output"></p>
+    </div>
+    <div id="icons_bar">
+        <a id="new_password"><i class="fas fa-redo-alt"></i></a>
+        <i class="fas fa-clipboard"></i>
     </div>
 </div>
 <script src="slider.js"></script>

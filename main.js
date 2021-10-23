@@ -1,8 +1,14 @@
-
 let uppercase_select = true; 
 let numbers_select = true; 
 let special_chars_select = true; 
 let number_of_chars = 10; 
+
+document.getElementById('new_password').addEventListener('click', run);
+
+function run() {
+    new_password = main(uppercase_select, numbers_select, special_chars_select, number_of_chars);
+    document.getElementById('password_output').innerHTML = new_password;
+}
 
 
 function getRndInteger(min, max) {
@@ -16,11 +22,13 @@ function main(uppercase, numbers, special_characters, length) {
     if (uppercase === true && numbers === true && special_characters === true) {
         for (let i = 0; i < length; i++) {
             generated_password_ascii.push(getRndInteger(33, 125))
+            console.log(1)
         }
     }
     else if (uppercase === false && numbers === false && special_characters === false) {
         for (let i = 0; i < length; i++) {
             generated_password_ascii.push(getRndInteger(97, 122))
+            console.log(2)
         }
     }
     else if (uppercase === true && numbers === false && special_characters === false) {
@@ -28,9 +36,11 @@ function main(uppercase, numbers, special_characters, length) {
             random_int = getRndInteger(65, 122)
             if (random_int > 90 && random_int < 97) {
                 i -= 1
+                console.log(3)
                 continue 
             }
             generated_password_ascii.push(random_int)
+            console.log(4)
         }
     }
     else if (uppercase === true && numbers === true && special_characters === false) {
@@ -105,9 +115,18 @@ function main(uppercase, numbers, special_characters, length) {
 
 function changeNumberOfChars(self) {
     number_of_chars = self.value
+    run()
 }
 
 function changeSetting(self) {
-    console.log(typeof self.id)
-    self.id = self.checked
+    if (self.id == "uppercase_select") {
+        uppercase_select = self.checked
+    } else if (self.id == "numbers_select") {
+        numbers_select = self.checked
+    } else if (self.id == "special_chars_select") {
+        special_chars_select = self.checked
+    }
+    run()
 }
+
+

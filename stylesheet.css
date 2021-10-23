@@ -23,3 +23,8 @@ body {
     margin: auto;
 }
 
+#icons_bar {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
