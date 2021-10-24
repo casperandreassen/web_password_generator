@@ -1,10 +1,13 @@
 body {
-    background-color: rgba(98, 113, 97, 0.8);
+    background-color: rgba(0, 114, 102, 1);
+    color: white;
     font-family: 'Work Sans', sans-serif;;
 }
 
 .list_element {
     list-style-type: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #password_output {
@@ -27,4 +30,41 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    padding-bottom: 40px;
+}
+
+#options_list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#second_body_elements {
+    width: 40%;
+    margin: auto;
+    padding-top: 80px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 30px;
+    border-radius: 20px;
+    display: none;
+    background-color: white;
+    color: black;
+}
+
+@media only screen and (max-width: 1000px) {
+    #second_body_elements {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #second_body_elements {
+        width: 95%;
+        padding-top: 20px;
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-bottom: 30px;
+        border-radius: 10px;
+    }
 }

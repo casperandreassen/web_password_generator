@@ -21,31 +21,33 @@ function main(uppercase, numbers, special_characters, length) {
     let generated_password = "";
     if (uppercase === true && numbers === true && special_characters === true) {
         for (let i = 0; i < length; i++) {
-            generated_password_ascii.push(getRndInteger(33, 125))
-            console.log(1)
+            let random_int = getRndInteger(33, 126)
+            if (random_int == 60 || random_int == 62) {
+                i -= 1
+                continue
+            }
+            generated_password_ascii.push(random_int)
         }
     }
     else if (uppercase === false && numbers === false && special_characters === false) {
         for (let i = 0; i < length; i++) {
-            generated_password_ascii.push(getRndInteger(97, 122))
-            console.log(2)
+            let random_int = getRndInteger(97, 122)
+            generated_password_ascii.push(random_int)
         }
     }
     else if (uppercase === true && numbers === false && special_characters === false) {
         for (let i = 0; i < length; i++) {
-            random_int = getRndInteger(65, 122)
+            let random_int = getRndInteger(65, 122)
             if (random_int > 90 && random_int < 97) {
                 i -= 1
-                console.log(3)
                 continue 
             }
             generated_password_ascii.push(random_int)
-            console.log(4)
         }
     }
     else if (uppercase === true && numbers === true && special_characters === false) {
         for (let i = 0; i < length; i++) {
-            random_int = getRndInteger(48, 122)
+            let random_int = getRndInteger(48, 122)
             if (random_int > 90 && random_int < 97 || random_int > 57 && random_int < 65) {
                 i -= 1
                 continue 
@@ -55,17 +57,20 @@ function main(uppercase, numbers, special_characters, length) {
     }
     else if (uppercase === false && numbers === true && special_characters === true) {
         for (let i = 0; i < length; i++) {
-            random_int = getRndInteger(33, 126)
+            let random_int = getRndInteger(33, 126)
             if (random_int > 64 && random_int < 91) {
                 i -= 1
                 continue 
+            } else if (random_int == 60 || random_int == 62) {
+                i -= 1
+                continue
             }
             generated_password_ascii.push(random_int)
         }
     }
     else if (uppercase === false && numbers === true && special_characters === false) {
         for (let i = 0; i < length; i++) {
-            random_int = getRndInteger(48, 122)
+            let random_int = getRndInteger(48, 122)
             if (random_int > 57 && random_int < 97) {
                 i -= 1
                 continue 
@@ -75,30 +80,39 @@ function main(uppercase, numbers, special_characters, length) {
     }
     else if (uppercase === false && numbers === false && special_characters === true) {
         for (let i = 0; i < length; i++) {
-            random_int = getRndInteger(33, 126)
+            let random_int = getRndInteger(33, 126)
             if (random_int > 47 && random_int < 58 || random_int > 64 && random_int < 91) {
                 i -= 1
                 continue 
+            } else if (random_int == 60 || random_int == 62) {
+                i -= 1 
+                continue
             }
             generated_password_ascii.push(random_int)
         }
     }
     else if (uppercase === true && numbers === false && special_characters === true) {
         for (let i = 0; i < length; i++) {
-            random_int = getRndInteger(33, 126)
+            let random_int = getRndInteger(33, 126)
             if (random_int > 47 && random_int < 58) {
                 i -= 1
                 continue 
+            } else if (random_int == 60 || random_int == 62) {
+                i -= 1
+                continue
             }
             generated_password_ascii.push(random_int)
         }
     }
     else if (uppercase === false && numbers === true && special_characters === true) {
         for (let i = 0; i < length; i++) {
-            random_int = getRndInteger(33, 126)
+            let random_int = getRndInteger(33, 126)
             if (random_int > 64 && random_int < 91) {
                 i -= 1
                 continue 
+            } else if (random_int == 60 || random_int == 62) {
+                i -= 1 
+                continue
             }
             generated_password_ascii.push(random_int)
         }
