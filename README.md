@@ -1,5 +1,6 @@
 # Web based random password generator
 
-### Project technologies 
-- Vue.js
+Quickly generates a random password for use on different sites. 
+
+Uses vanilla JS. 
 
