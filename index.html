@@ -17,23 +17,36 @@
         <h2>random password generator</h2>
     </div>
     <div id="options">
-        <ul id="options_list">
-            <li class="list_element"><input id="uppercase_select" type="checkbox" onchange="changeSetting(this)" checked>Uppercase</li>
-            <li class="list_element"><input id="numbers_select" type="checkbox" onchange="changeSetting(this)" checked>Numbers</li>
-            <li class="list_element"><input id="special_chars_select" type="checkbox" onchange="changeSetting(this)" checked>Special characters</li>
-            <li class="list_element"><input value="10" type="number" id="number_of_chars" onchange="changeNumberOfChars(this)">Number of characters</li>
-        </ul>
+        <label class="container">Uppercase
+            <input class="list_checkbox" id="uppercase_select" type="checkbox" onchange="changeSetting(this)" checked>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Numbers
+            <input class="list_checkbox" id="numbers_select" type="checkbox" onchange="changeSetting(this)" checked>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Special caracters
+            <input class="list_checkbox" id="special_chars_select" type="checkbox" onchange="changeSetting(this)" checked>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container_number">Number of characters
+            <input value="10" min="5" max="30" type="number" id="number_of_chars" onchange="changeNumberOfChars(this)">
+        </label>
         
     </div>
     <div id="generated password">
         <p id="password_output"></p>
     </div>
     <div id="icons_bar">
-        <a id="new_password"><i class="fas fa-redo-alt"></i></a>
-        <i id="copy_to_clipboard" class="fas fa-clipboard"></i>
-        <a id="learn_more"><i class="fas fa-info-circle"></i></a>
-        <a href="https://github.com/casperandreassen/web_password_generator" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="icons" id="new_password"><i class="fas fa-redo-alt"></i></a>
+        <a class="icons" id="copy_to_clipboard" onclick="handleCopyTextFromParagraph(new_password)"><i id="copy_to_clipboard" class="fas fa-clipboard"></i></a>
+        <a class="icons" id="learn_more"><i class="fas fa-info-circle"></i></a>
+        <a class="icons" href="https://github.com/casperandreassen/web_password_generator" target="_blank"><i class="fab fa-github"></i></a>
     </div>
+</div>
+
+<div id="copied_password_notifier">
+    <p>Copied password</p>
 </div>
 
 <div id="second_body_elements">

@@ -2,12 +2,14 @@ let uppercase_select = true;
 let numbers_select = true; 
 let special_chars_select = true; 
 let number_of_chars = 10; 
+let new_password = ""
 
 document.getElementById('new_password').addEventListener('click', run);
 
 function run() {
     new_password = main(uppercase_select, numbers_select, special_chars_select, number_of_chars);
     document.getElementById('password_output').innerHTML = new_password;
+    handleCopyTextFromParagraph(new_password)
 }
 
 
@@ -143,4 +145,19 @@ function changeSetting(self) {
     run()
 }
 
+
+function handleCopyTextFromParagraph(new_password) {
+    const body = document.querySelector('body');
+    const area = document.createElement('textarea');
+    body.appendChild(area);
+    area.innerHTML = new_password;
+    area.select();
+    console.log(area)
+    document.execCommand('copy');
+    body.removeChild(area);
+    document.getElementById('copied_password_notifier').style.cssText = 'visibility: visible; opacity: 1; transition: visibility 0.4s, opacity 0.5s linear;'
+    setTimeout(function() {
+        document.getElementById('copied_password_notifier').style.cssText = 'visibility: hidden; opacity: 0; transition: visibility 0.4s, opacity 0.5s linear;'
+    }, 4000);
+  }
 

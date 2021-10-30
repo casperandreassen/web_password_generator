@@ -4,15 +4,102 @@ body {
     font-family: 'Work Sans', sans-serif;;
 }
 
-.list_element {
-    list-style-type: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+
+/* Customize the label (the container) */
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+
+
+.container_number {
+    font-size: 18px;
+}
+
+.container_number > input {
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: rgba(74, 74, 74, 0.8);
+    color: white;
+    box-shadow: none;
+    border: none;
+    padding: 4px;
 }
 
 #password_output {
     color: white;
     background-color: rgba(74, 74, 74, 0.8);
+    font-size: 18px;
     padding: 10px;
     width: 300px;
     text-align: center;
@@ -30,14 +117,10 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
 
-#options_list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+
 
 #second_body_elements {
     width: 40%;
@@ -47,10 +130,12 @@ body {
     padding-left: 40px;
     padding-bottom: 30px;
     border-radius: 20px;
-    display: none;
     background-color: white;
     color: black;
 }
+
+
+
 
 @media only screen and (max-width: 1000px) {
     #second_body_elements {
@@ -67,4 +152,35 @@ body {
         padding-bottom: 30px;
         border-radius: 10px;
     }
+}
+
+.icons {
+    color: white;
+}
+
+.icons:visited {
+    color: white;
+}
+
+.icons:active {
+    color: white;
+}
+
+.icons:hover {
+    cursor: pointer;
+    color: lightgray;
+}
+
+
+#copied_password_notifier {
+    margin: auto;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    padding: 5px;
+    max-width: 100px;
+    text-align: center;
+    font-size: 8pt;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
